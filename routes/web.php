@@ -12,4 +12,6 @@
 */
 
 Route::get('/', 'CipherController@index');
+Route::get('/encodeCipher','CipherController@encodeCipher');
+Route::get('/shiftDirection', 'CipherController@neutralizeShiftDirection');
 
