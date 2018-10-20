@@ -7,7 +7,7 @@ class CipherController extends Controller
     //
     public function index()
     {
-        return 'Here is the main page of the app with the form';
+        return view('welcome');
     }
 
     // add the code from the Cipher Class from p2? will wait until next week
