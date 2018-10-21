@@ -37,7 +37,8 @@
 
 
 <footer>
-    Project 3 Pat Ausman October 2018
+    <a href='/'> Return to Main Page </a>
+    <p>Project 3 Pat Ausman October 2018</p>
 </footer>
 
 

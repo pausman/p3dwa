@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use KKiernan\CaesarCipher;
 class CipherController extends Controller
+
 {
     //
     public function index()
@@ -10,10 +12,21 @@ class CipherController extends Controller
         return view('welcome');
     }
 
-    // add the code from the Cipher Class from p2? will wait until next week
+    // put up  a form to get the info to encode.
     public function encodeCipher()
     {
-        return 'take the data from the form, encode it and send the result back';
+        $cipher = new CaesarCipher();
+        $ciphertext = $cipher->encrypt('This is a plain text message that will be encrypted!', 8);
+        dump($ciphertext);
+    }
+
+    public function decodeCipher()
+    {
+        $cipher = new CaesarCipher();
+        $ciphertext = $cipher->encrypt('This is a plain text message that will be encrypted!', 8);
+        dump($ciphertext);
+        $plaintext = $cipher->decrypt($ciphertext, 8);
+        dump($plaintext);
     }
 
     public function neutralizeShiftDirection()

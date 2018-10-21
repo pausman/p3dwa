@@ -2,7 +2,7 @@
 
 @section('content')
     <h2>Caesar Cipher</h2>
-    <button type="button" class="btn btn-primary btn-lg">Encode Plaintext</button>
-    <button type="button" class="btn btn-primary btn-lg">Decode Ciphertext</button>
+    <a href='/encodeCipher' class="btn btn-primary btn-lg" >Encode Plaintext</a>
+    <a href='/decodeCipher' class="btn btn-primary btn-lg" >Decode Ciphertext</a>
 
 @endsection
