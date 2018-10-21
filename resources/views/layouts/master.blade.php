@@ -37,7 +37,7 @@
 
 
 <footer>
-    Footer info
+    Project 3 Pat Ausman October 2018
 </footer>
 
 
