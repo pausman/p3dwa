@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use KKiernan\CaesarCipher;
+
 class PracticeController extends Controller
 {
 
     // from class notes
     public function practice1()
     {
-        dump('This is the first example.');
+        return ("practice 1");
     }
 
     public function practice2()
@@ -21,6 +22,12 @@ class PracticeController extends Controller
         dump($plaintext);
     }
 
+    public function practice3()
+    {
+        $railtext = "attack at dawn";
+        $rtext = encodeRailCipher(3,$railtext);
+        dump($rtext);
+    }
     public function index($n = null)
     {
         $methods = [];
