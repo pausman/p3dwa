@@ -15,18 +15,12 @@ class CipherController extends Controller
     // put up  a form to get the info to encode.
     public function encodeCipher()
     {
-        $cipher = new CaesarCipher();
-        $ciphertext = $cipher->encrypt('This is a plain text message that will be encrypted!', 8);
-        dump($ciphertext);
+        return view('caesarEncode');
     }
 
     public function decodeCipher()
     {
-        $cipher = new CaesarCipher();
-        $ciphertext = $cipher->encrypt('This is a plain text message that will be encrypted!', 8);
-        dump($ciphertext);
-        $plaintext = $cipher->decrypt($ciphertext, 8);
-        dump($plaintext);
+        return view('caesarDecode');
     }
 
     public function neutralizeShiftDirection()
