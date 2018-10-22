@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-class RailCipherController extends Controller
+use Illuminate\Http\Request;
+
+class RailController extends Controller
 {
     //
     public function encodeRailCipher($key,$plaintext)
@@ -12,15 +14,15 @@ class RailCipherController extends Controller
         $rail = array(array());
 
 
-    // filling the rail matrix to distinguish filled
-    // spaces from blank ones
-    for ($i=0; $i < $key; $i++)
-        for ($j = 0; $j < strlen($plaintext); $j++)
-            $rail[$i][$j] = '\n';
+        // filling the rail matrix to distinguish filled
+        // spaces from blank ones
+        for ($i=0; $i < $key; $i++)
+            for ($j = 0; $j < strlen($plaintext); $j++)
+                $rail[$i][$j] = '\n';
 
-    // to find the direction
-    $dir_down = false;
-    $row = 0, $col = 0;
+        // to find the direction
+        $dir_down = false;
+        $row = 0, $col = 0;
 
     for ($i=0; $i < strlen($plaintext); $i++)
     {
