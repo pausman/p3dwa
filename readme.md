@@ -5,6 +5,7 @@
 ## Outside resources
 *Your list of outside resources go here*
 icon resized from icon on https://esmithy.net/2010/09/06/cipher-suite-classic-ciphers-for-webos/
+http://practicalcryptography.com/ciphers/
 
 
 ## 3 Unique inputs
