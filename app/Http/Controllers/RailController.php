@@ -1,11 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class RailController extends Controller
 {
     //
-    public function encodeRailCipher()
+    public function encodeRailCipher(Request $request)
+    {
+        return view('rail.encodeRail')->with([
+            'ciphertext' => $request->session()->get('ciphertext', ''),
+            'keyLength' => $request->session()->get('keyLength', 2),
+            'textToEncode' => $request->session()->get('textToEncode', ''),
+        ]);
+    }
+
+    public function ssencodeRailCipher()
     {
         $key = 3;
         $plaintext = 'Furtherreading';
