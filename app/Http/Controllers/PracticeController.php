@@ -28,6 +28,11 @@ class PracticeController extends Controller
         $rtext = encodeRailCipher(3,$railtext);
         dump($rtext);
     }
+    public function practice4()
+    {
+       $t = config('app.credit');
+       dump($t);
+    }
     public function index($n = null)
     {
         $methods = [];

@@ -1,7 +1,10 @@
 <?php
 
 return [
-
+    'nav' => [
+        '/encodeCipher' => 'Caesar Cipher Encode',
+    ],
+    'credit' => 'Project 3 Pat Ausman Fall 2018',
     /*
     |--------------------------------------------------------------------------
     | Application Name

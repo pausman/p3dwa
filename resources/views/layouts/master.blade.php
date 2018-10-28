@@ -14,13 +14,11 @@
     {{--load any local page head code --}}
     @stack('head')
 </head>
-<header>
-    <a href='/'><img src='images/ciphericon.png' id='logo' alt='Cipher Logo'></a>{{config('app.name')}}
-</header>
+
 <body>
 
 <header>
-    {{-- <a href='/'><img src='/images/foobookslogo.jpg' id='logo' alt='Foobooks Logo'></a> --}}
+    @include('layouts.nav')
 </header>
 
 
@@ -36,9 +34,9 @@
 </section>
 
 
+<!-- Footer -->
 <footer>
-    <a href='/'> Return to Main Page </a>
-    <p>Project 3 Pat Ausman October 2018</p>
+    <p>{{config('app.credit')}}</p>
 </footer>
 
 
