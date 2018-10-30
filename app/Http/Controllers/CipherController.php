@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use KKiernan\CaesarCipher;
-use Illuminate\Validation\Rule;
 
 class CipherController extends Controller
 
@@ -19,8 +18,9 @@ class CipherController extends Controller
     public function encodeCipher(Request $request)
     {
         return view('caesar.encodeCaesar')->with([
+
             'ciphertext' => $request->session()->get('ciphertext', ''),
-            'shiftDirection' => $request->session()->get('shiftDirection', 'right'),
+            'shiftDirection' => $request->session()->get('shiftDirection', 'left'),
             'shiftLength' => $request->session()->get('shiftLength', 2),
             'textToEncode' => $request->session()->get('textToEncode', ''),
         ]);
@@ -29,11 +29,13 @@ class CipherController extends Controller
     // take the data from the form,encode it and return encoded
     public function encodeprocess(Request $request)
     {
+        # Validate the request data
         $request->validate([
             'textToEncode' => 'required',
-            'shiftDirection' => 'required',Rule::in(['left', 'right']),
-            'shiftLength' => 'required','min:1|max:25|size:2',
+            'shiftDirection' => 'required|in:"left", "right"',
+            'shiftLength' => 'required|numeric|gte:1|lte:25',
         ]);
+
         $textToEncode = $request ->input('textToEncode',null);
         if ($textToEncode) {
         $ciphertext = '';
@@ -45,8 +47,8 @@ class CipherController extends Controller
             $ciphertext = $cipher->encrypt($textToEncode, $shiftLength);
             return redirect('/caesar/encodeCipher')->with([
                 'ciphertext' => $ciphertext,
-                'shiftDirection' => $request->input('shiftDirection', 'right'),
-                'shiftLength' => $request->input('shiftLength', 2),
+                'shiftDirection' => $shiftDirection,
+                'shiftLength' => $shiftLength,
                 'textToEncode' => $textToEncode
             ]);
 

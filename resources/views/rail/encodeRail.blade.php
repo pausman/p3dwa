@@ -4,9 +4,9 @@
 
 
     <h2> Rail Fence Cipher Encode</h2>
-    <img src=" https://ds055uzetaobb.cloudfront.net/image_optimizer/6330426389f23393bd38350e7e3d12a803f640e0.png"
+    <img src="http://cdncontribute.geeksforgeeks.org/wp-content/uploads/Untitled1.jpg"
          id="ccimage">
-    <h4 id="ccimagetext">A Caesar Cipher replaces each plaintext letter with a different one a fixed number of places up or down the alphabet.The cipher illustrated above uses a right shift of three, so that each occurrence of E in the plaintext becomes B in the ciphertext</h4>
+    <h4 id="ccimagetext">In the Rail Fence Cipher, the plain-text is written downwards and diagonally on successive rails of an imaginary fence. When we reach the bottom rail, we traverse upwards moving diagonally, after reaching the top rail, the direction is changed again. Thus the alphabets of the message are written in a zig-zag manner. After each alphabet has been written, the individual rows are are combined to obtain the cipher-text.</h4>
     @if($textToEncode)
         <p class="text-left ">
             <small><strong>The encoded text is:</strong> <em>{{$ciphertext}}</em>
@@ -28,10 +28,10 @@
                 @include('modules.fielderrormsg', ['field' => 'textToEncode'])
             </div>
             <div class="form-group">
-                <label for='railLength'> Rail length:
-                    <input type='number' required name='railLength' min="1" max="25"
-                           value='{{ old('shiftLength') }}'>
-                    @include('modules.fielderrormsg', ['field' => 'shiftLength'])
+                <label for='numberOfRails'> Number of Rails:
+                    <input type='number' name='numberOfRails' min="1" max="25"
+                           value='{{ old('numberOfRails') }}'>
+                    @include('modules.fielderrormsg', ['field' => 'numberOfRails'])
                 </label>
             </div>
             <input type='submit'

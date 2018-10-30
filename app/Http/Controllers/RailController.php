@@ -11,7 +11,7 @@ class RailController extends Controller
     {
         return view('rail.encodeRail')->with([
             'ciphertext' => $request->session()->get('ciphertext', ''),
-            'keyLength' => $request->session()->get('keyLength', 2),
+            'numberOfRails' => $request->session()->get('numberOfRails', 2),
             'textToEncode' => $request->session()->get('textToEncode', ''),
         ]);
     }

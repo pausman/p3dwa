@@ -20,9 +20,15 @@ footer {
     color: teal;
 }
 
+/* color the jumbotron */
 .jumbotron {
-    background-color: #b4c9ea;
+    background-color: #D4DDF7;
+}
 
+/* shrink the alert box */
+.alert {
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
 .checkbox, label, .container {
@@ -40,14 +46,28 @@ footer {
 }
 
 .error {
-    list-style-type: none;
-    color: #a94442; /* reddish */
+    color: #C21460;
     text-align: left;
-    margin: 0;
-    padding: 0;
+    font-size: 16px;
+    font-weight: normal;
+
+}
+
+.result {
+    color: #FB9902;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 16px;
+
+}
+
+.require {
+    color: darkblue;
     font-size: 12px;
     font-style: italic;
+    font-weight: normal;
 }
+
 
 
 

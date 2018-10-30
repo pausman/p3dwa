@@ -2,7 +2,7 @@
 
 return [
     'nav' => [
-        '/caesar/encodeCipher' => 'Caesar Cipher Encode',
+        '/caesar/encodeCipher/' => 'Caesar Cipher Encode',
         '/rail/encodeRail' => 'Rail Cipher Encode',
     ],
     'credit' => 'Project 3 Pat Ausman Fall 2018',
