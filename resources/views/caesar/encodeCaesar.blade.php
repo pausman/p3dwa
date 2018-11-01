@@ -49,7 +49,6 @@
                        name="shiftDirection"
                        value="right" {{ (old('shiftDirection') == 'right') ? 'checked' : 'checked'}} > Rotate Right or Up<br>
                 <input type="radio"
-                       id='checkbox'
                        name="shiftDirection"
                        value="left" {{ (old('shiftDirection') == 'left') ? 'checked' : '' }}> Rotate Left or Down<br>
                 @include('modules.fielderrormsg', ['field' => 'shiftDirection'])
