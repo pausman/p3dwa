@@ -5,7 +5,7 @@
 
     <h2> Caesar Cipher Encode</h2>
     <img src=" https://ds055uzetaobb.cloudfront.net/image_optimizer/6330426389f23393bd38350e7e3d12a803f640e0.png"
-         id="ccimage">
+         alt="Caesar Cipher" id="ccimage">
     <h4 id="ccimagetext">A Caesar Cipher replaces each plaintext letter with a different one a fixed number of places up or down the alphabet.The cipher illustrated above uses a right shift of three, so that each occurrence of B in the plaintext becomes E in the ciphertext</h4>
     @if($textToEncode)
         <p class="text-left ">
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for='shiftLength'> Shift length:
-                    <input type='number' name='shiftLength' min="1" max="26"
+                    <input type='number' name='shiftLength' min="1" max="26" id='shiftLength'
                            value='{{old("shiftLength",2)}}'><span class='require'> *Required </span>
 
                     @include('modules.fielderrormsg', ['field' => 'shiftLength'])
@@ -45,9 +45,11 @@
                 <label class="form-check-label" for='checkbox'> Shift direction:</label><span class='require'> *Required </span>
                 <br>
                 <input type="radio"
+                       id='checkbox'
                        name="shiftDirection"
                        value="right" {{ (old('shiftDirection') == 'right') ? 'checked' : 'checked'}} > Rotate Right or Up<br>
                 <input type="radio"
+                       id='checkbox'
                        name="shiftDirection"
                        value="left" {{ (old('shiftDirection') == 'left') ? 'checked' : '' }}> Rotate Left or Down<br>
                 @include('modules.fielderrormsg', ['field' => 'shiftDirection'])

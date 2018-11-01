@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
-    <div classs='container-fluid'>
+    <div class='container-fluid'>
         <div class="navbar-header">
             <img class="navbar-brand" src='/images/ciphericon.png' id='logo' alt='Cipher Logo'>
             <a class="navbar-brand" href="/">{{config('app.name')}}</a>
