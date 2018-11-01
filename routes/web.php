@@ -15,7 +15,7 @@ Route::get('/', 'CipherController@index');
 Route::get('/caesar/encodeCipher','CipherController@encodeCipher');
 Route::get('/caesar/encode-process','CipherController@encodeprocess');
 Route::get('/rail/encodeRail','RailController@encodeRailCipher');
-Route::get('/caesar/encode-process','CipherController@encodeprocess');
+Route::get('/rail/encode-process','RailController@encodeRailProcess');
 
 
 

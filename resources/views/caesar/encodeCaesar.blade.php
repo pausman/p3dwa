@@ -35,8 +35,8 @@
             </div>
             <div class="form-group">
                 <label for='shiftLength'> Shift length:
-                    <input type='number' name='shiftLength' min="1" max="26" id='shiftLength'
-                           value='{{old("shiftLength",2)}}'><span class='require'> *Required </span>
+                    <input type='number' name='shiftLength' min="1" max="25" id='shiftLength'
+                           value='{{old("shiftLength",2)}}'><span class='require'> *Required Min 1 Max 25</span>
 
                     @include('modules.fielderrormsg', ['field' => 'shiftLength'])
                 </label>

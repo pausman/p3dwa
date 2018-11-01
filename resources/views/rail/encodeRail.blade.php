@@ -9,29 +9,36 @@
     <h4 id="ccimagetext">In the Rail Fence Cipher, the plain-text is written downwards and diagonally on successive rails of an imaginary fence. When we reach the bottom rail, we traverse upwards moving diagonally, after reaching the top rail, the direction is changed again. Thus the alphabets of the message are written in a zig-zag manner. After each alphabet has been written, the individual rows are are combined to obtain the cipher-text.</h4>
     @if($textToEncode)
         <p class="text-left ">
-            <small><strong>The encoded text is:</strong> <em>{{$ciphertext}}</em>
+            <small>The encoded text for the string: <span class='result'>{{$textToEncode}}</span>
+                   is: <span class='result'>{{$ciphertext}}</span>
         </p>
     @endif
-
+    <!-- error form -->
+    @if(count($errors) > 0)
+        <div class='alert alert-warning'>
+            Please correct the errors below to submit the form
+        </div>
+    @endif
 
     <!-- form to get the parameters to encode by-->
-    <form method='GET' action='/caesar/encode-process'>
+    <form method='GET' action='/rail/encode-process'>
         <div class='container bg-light text-left'>
             <div class="form-group">
-                <label> Enter text to encode:
+                <label> Enter text to encode: <span class='require'> *Required </span>
                     <textarea class="form-control"
                               rows="3"
                               name="textToEncode"
                               cols=60
-                    >{{ old('textToEncode') }}</textarea>
+                    >{{old('textToEncode')}}</textarea>
                 </label>
                 @include('modules.fielderrormsg', ['field' => 'textToEncode'])
             </div>
             <div class="form-group">
-                <label for='numberOfRails'> Number of Rails:
-                    <input type='number' name='numberOfRails' min="1" max="25"
-                           value='{{ old('numberOfRails') }}'>
-                    @include('modules.fielderrormsg', ['field' => 'numberOfRails'])
+                <label for='railsLength'> Number of Rails:
+                    <input type='number' name='railsLength' min="1" max="10" id='RailsLength'
+                           value='{{old("railsLength",3)}}'><span class='require'> *Required Min 1 Max 10 </span>
+
+                    @include('modules.fielderrormsg', ['field' => 'shiftLength'])
                 </label>
             </div>
             <input type='submit'
@@ -40,10 +47,5 @@
                    value='Encode'>
         </div>
     </form>
-    <!-- error message -->
-    @if(count($errors) > 0)
-        <div class='alert alert-danger text-left'>
-            Please correct the errors to submit the form
-        </div>
-    @endif
+
 @endsection
