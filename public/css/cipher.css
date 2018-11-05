@@ -45,6 +45,9 @@ footer {
     text-align: left;
 }
 
+#404image {
+    width: 300px;
+}
 .error {
     color: #C21460;
     text-align: left;

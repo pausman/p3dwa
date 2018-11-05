@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+    <!-- Explanation of the encoding schema-->
     <h2> Caesar Cipher Encode</h2>
     <img src=" https://ds055uzetaobb.cloudfront.net/image_optimizer/6330426389f23393bd38350e7e3d12a803f640e0.png"
          alt="Caesar Cipher" id="ccimage">
@@ -13,6 +13,7 @@
              is: <span class='result'>{{$ciphertext}}</span>
         </p>
     @endif
+
     <!-- error form -->
     @if(count($errors) > 0)
         <div class='alert alert-warning'>

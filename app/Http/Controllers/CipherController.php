@@ -9,15 +9,6 @@ class CipherController extends Controller
 
 {
     /*
-     * GET /
-     * Main Page of the app
-     */
-    public function index()
-    {
-        return view('index');
-    }
-
-    /*
      * GET /caesar/encodecipher
      * Caesar Cipher Page with form
      */
