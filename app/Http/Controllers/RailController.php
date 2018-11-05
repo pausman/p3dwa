@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 class RailController extends Controller
 {
-    //
+
+    /*
+     * GET /rail/encodeRail
+     */
     public function encodeRailCipher(Request $request)
     {
         return view('rail.encodeRail')->with([
@@ -15,6 +19,10 @@ class RailController extends Controller
         ]);
     }
 
+    /*
+     * GET /rail//rail/encode-process
+     * Take the form data validate it, encode it and return it.
+     */
     public function encodeRailProcess(Request $request)
     {
         # Validate the request data
@@ -24,7 +32,7 @@ class RailController extends Controller
         ]);
         # get the text to encode
         $textToEncode = $request->input('textToEncode', null);
-        $railsLength = $request->input('railsLength',3);
+        $railsLength = $request->input('railsLength', 3);
 
         # create the matrix to cipher plain text
         # rows = railsLength , columns = length(textToEncode)
@@ -61,13 +69,12 @@ class RailController extends Controller
             for ($j = 0; $j < strlen($textToEncode); $j++)
                 if ($rail[$i][$j] != '\n')
                     $result = $result . $rail[$i][$j];
+
         return redirect('/rail/encodeRail')->with([
             'ciphertext' => $result,
             'railsLength' => $railsLength,
             'textToEncode' => $textToEncode
         ]);
-
-
     }
 
 }

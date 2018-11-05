@@ -1,19 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use KKiernan\CaesarCipher;
 
 class CipherController extends Controller
 
 {
-    //
+    /*
+     * GET /
+     * Main Page of the app
+     */
     public function index()
     {
         return view('index');
     }
 
-    // put up  a form to get the info to encode.
+    /*
+     * GET /caesar/encodecipher
+     * Caesar Cipher Page with form
+     */
 
     public function encodeCipher(Request $request)
     {
@@ -26,7 +33,10 @@ class CipherController extends Controller
         ]);
     }
 
-    // take the data from the form,encode it and return encoded
+    /*
+     * GET /caesar/encode-process
+     * process the form data and display the results
+     */
     public function encodeprocess(Request $request)
     {
         # Validate the request data
@@ -35,25 +45,30 @@ class CipherController extends Controller
             'shiftDirection' => 'required|in:"left", "right"',
             'shiftLength' => 'required|numeric|gte:1|lte:25',
         ]);
+        $textToEncode = $request->input('textToEncode', null);
 
-        $textToEncode = $request ->input('textToEncode',null);
+        # If there is text to encode, encode it.
         if ($textToEncode) {
-        $ciphertext = '';
+            $ciphertext = '';
             # account for the direction of the shift
             $shiftDirection = $request->input('shiftDirection', 'right');
             $shiftLength = $request->input('shiftLength', 2);
             $shiftLength = $this->normalizeShiftDirection($shiftLength, $shiftDirection);
             $cipher = new CaesarCipher();
             $ciphertext = $cipher->encrypt($textToEncode, $shiftLength);
+
             return redirect('/caesar/encodeCipher')->with([
                 'ciphertext' => $ciphertext,
                 'shiftDirection' => $shiftDirection,
                 'shiftLength' => $shiftLength,
                 'textToEncode' => $textToEncode
             ]);
-
         }
     }
+
+    /*
+     * private function to deal negative shifts
+     */
     private function normalizeShiftDirection($shiftLength, $shiftDirection)
     {
         # fix length if the want to shift left
@@ -64,34 +79,5 @@ class CipherController extends Controller
         }
 
         return $shiftLength2;
-    }
-    // from p2
-    public function encodeText($shiftLength, $shiftDirection)
-    {
-        # account for the direction of the shift
-        $shiftLength = $this->normalizeShiftDirection($shiftLength, $shiftDirection);
-
-        # loop through each character in the input striing
-        $encodedText = '';
-        for ($pos = 0; $pos < strlen($this->textToEncode); $pos++) {
-            $currentChar = ord($this->textToEncode[$pos]);
-
-            # only encode alpha characters
-            if (ctype_alpha($currentChar)) {
-                # Encode upper and lower case
-                if ($currentChar >= ord("a") and $currentChar <= ord("z")) {
-                    $baseA = ord('a');
-                } else {
-                    $baseA = ord('A');
-                }
-                $encodedText[$pos] =
-                    chr(((($currentChar + $shiftLength + $baseA) % $baseA) % 26) + $baseA);
-            } else {
-                # if not alpha just leave it in.
-                $encodedText[$pos] = chr($currentChar);
-            }
-        }
-
-        return $encodedText;
     }
 }

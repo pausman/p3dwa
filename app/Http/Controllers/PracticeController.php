@@ -6,6 +6,9 @@ use KKiernan\CaesarCipher;
 
 class PracticeController extends Controller
 {
+    /*
+     * This was used for testing
+     */
 
     // from class notes
     public function practice1()
@@ -25,14 +28,16 @@ class PracticeController extends Controller
     public function practice3()
     {
         $railtext = "attack at dawn";
-        $rtext = encodeRailCipher(3,$railtext);
+        $rtext = encodeRailCipher(3, $railtext);
         dump($rtext);
     }
+
     public function practice4()
     {
-       $t = config('app.credit');
-       dump($t);
+        $t = config('app.credit');
+        dump($t);
     }
+
     public function index($n = null)
     {
         $methods = [];
