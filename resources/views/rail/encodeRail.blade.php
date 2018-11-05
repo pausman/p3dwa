@@ -5,6 +5,7 @@
 
     <h2> Rail Fence Cipher Encode</h2>
     <img src="http://cdncontribute.geeksforgeeks.org/wp-content/uploads/Untitled1.jpg"
+         alt="Rail Cipher"
          id="ccimage">
     <h4 id="ccimagetext">In the Rail Fence Cipher, the plain-text is written downwards and diagonally on successive rails of an imaginary fence. When we reach the bottom rail, we traverse upwards moving diagonally, after reaching the top rail, the direction is changed again. Thus the alphabets of the message are written in a zig-zag manner. After each alphabet has been written, the individual rows are are combined to obtain the cipher-text.</h4>
     @if($textToEncode)
@@ -35,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label for='railsLength'> Number of Rails:
-                    <input type='number' name='railsLength' min="1" max="10" id='RailsLength'
+                    <input type='number' name='railsLength' min="1" max="10" id='railsLength'
                            value='{{old("railsLength",3)}}'><span class='require'> *Required Min 1 Max 10 </span>
 
                     @include('modules.fielderrormsg', ['field' => 'shiftLength'])
