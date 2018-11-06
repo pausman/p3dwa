@@ -11,13 +11,13 @@
 * https://internetdevels.com/blog/creative-404-error-pages
 
 ## 3 Unique inputs
-TextArea
-Text box
-Checkboxes
+* TextArea
+* Text box
+* Checkboxes
 
 ## Packages
-KKiernan\CaesarCipher
-barryvdh/laravel-debugbar
+* KKiernan\CaesarCipher
+* barryvdh/laravel-debugbar
 
 ## Code style divergences
 None
