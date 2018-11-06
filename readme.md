@@ -17,7 +17,7 @@ Checkboxes
 
 ## Packages
 KKiernan\CaesarCipher
- barryvdh/laravel-debugbar
+barryvdh/laravel-debugbar
 
 ## Code style divergences
 None
